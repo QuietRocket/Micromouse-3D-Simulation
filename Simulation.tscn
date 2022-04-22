@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhxd6dkrkjw7t"]
+
+[ext_resource type="PackedScene" path="res://Robot.tscn" id="1_aky4o"]
+[ext_resource type="MeshLibrary" uid="uid://cifkw667b4vqw" path="res://GridMeshLibrary.tres" id="2_d5p61"]
+[ext_resource type="Script" path="res://scripts/Labyrinth.gd" id="3_kwqxn"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_32iej"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_v4g1u"]
+size = Vector2(100, 100)
+
+[node name="Simulation" type="Node3D"]
+
+[node name="Robot" parent="." instance=ExtResource( "1_aky4o" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.786, 0)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource( "WorldBoundaryShape3D_32iej" )
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource( "PlaneMesh_v4g1u" )
+
+[node name="ViewSupport" type="RigidDynamicBody3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, -2.26267e-08, 0.965926, 0.258819, 8.44439e-08, 0.258819, -0.965926, 0, 3, -5)
+
+[node name="Camera3D" type="Camera3D" parent="ViewSupport"]
+fov = 56.1577
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="ViewSupport"]
+transform = Transform3D(1, 2.26267e-08, 2.97884e-09, -2.26267e-08, 0.965926, 0.258819, 2.97887e-09, -0.258819, 0.965926, -1.0707e-07, 0.707107, 1.22474)
+
+[node name="CarExtensionJoint" type="Generic6DOFJoint3D" parent="."]
+nodes/node_a = NodePath("../ViewSupport")
+nodes/node_b = NodePath("../Robot")
+
+[node name="Labyrinth" type="GridMap" parent="."]
+mesh_library = ExtResource( "2_d5p61" )
+cell_size = Vector3(1, 1, 1)
+cell_octant_size = 16
+script = ExtResource( "3_kwqxn" )
