@@ -24,7 +24,7 @@ func load_maze(path: String):
 
 const SCALE = 5
 const XOFF = -2
-const YOFF = 0
+const YOFF = 2
 
 func process_line(x, y, directions):
 	var ax = x * (SCALE - 1) + XOFF
