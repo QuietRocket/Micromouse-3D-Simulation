@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://vvsd7ewqx67s"]
+[gd_scene load_steps=9 format=3 uid="uid://vvsd7ewqx67s"]
 
 [ext_resource type="Script" path="res://scripts/Robot.gd" id="1_d46s0"]
+[ext_resource type="PackedScene" uid="uid://bndb1p05qq512" path="res://Sensor.tscn" id="2_xe3n8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xji6o"]
 friction = 0.7
@@ -67,3 +68,17 @@ suspension_max_force = 80.0
 transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0)
 material_override = SubResource( "ORMMaterial3D_gv7pp" )
 mesh = SubResource( "CylinderMesh_oqhxp" )
+
+[node name="Sensors" type="Node3D" parent="."]
+
+[node name="ForwardLeftSensor" parent="Sensors" instance=ExtResource( "2_xe3n8" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 1.5)
+
+[node name="ForwardRightSensor" parent="Sensors" instance=ExtResource( "2_xe3n8" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 1.5)
+
+[node name="SideRightWheel" parent="Sensors" instance=ExtResource( "2_xe3n8" )]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.7, 0, 1.2)
+
+[node name="SideLeftWheel" parent="Sensors" instance=ExtResource( "2_xe3n8" )]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.7, 0, 1.2)

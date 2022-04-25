@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bndb1p05qq512"]
+
+[ext_resource type="Script" path="res://scripts/Sensor.gd" id="1_lrq16"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2uf3l"]
+top_radius = 0.125
+bottom_radius = 0.25
+height = 0.25
+radial_segments = 8
+rings = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_wftpo"]
+radius = 0.125
+height = 0.25
+radial_segments = 10
+rings = 2
+
+[node name="Sensor" type="RayCast3D"]
+target_position = Vector3(0, 0, 1)
+script = ExtResource( "1_lrq16" )
+
+[node name="Cone" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.125)
+mesh = SubResource( "CylinderMesh_2uf3l" )
+
+[node name="Point" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)
+mesh = SubResource( "SphereMesh_wftpo" )
