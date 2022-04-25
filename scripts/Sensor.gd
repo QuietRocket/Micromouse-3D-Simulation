@@ -1,7 +1,8 @@
 extends RayCast3D
 
-const DISTANCE = 5
+const DISTANCE = 3.4
 var original_position: Vector3
+@export var type: String
 
 signal update
 
@@ -15,8 +16,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if is_colliding():
-		# If there is a collision, move the point to the (global) collision point
-		$Point.global_transform.origin = get_collision_point()
+		# If there is a collision...
+		var point: Vector3 = get_collision_point()
+		# move the point to the (global) collision point
+		$Point.global_transform.origin = point
+		# Emit a collision with its type
+		update.emit((point - global_transform.origin).length())
 	else:
 		# Otherwise, set it back to the (relative) original position
 		$Point.position = original_position

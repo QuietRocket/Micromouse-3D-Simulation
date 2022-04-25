@@ -33,7 +33,7 @@ light_indirect_energy = 15.04
 light_specular = 1.0
 
 [node name="FollowCamera" type="Camera3D" parent="ViewSupport"]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2, 4)
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 2.6, 2)
 current = true
 fov = 56.1577
 
