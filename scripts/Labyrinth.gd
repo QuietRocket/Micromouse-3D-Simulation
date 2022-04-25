@@ -58,7 +58,3 @@ func process_line(x, y, directions):
 
 func set_block(x: int, y: int):
 	self.set_cell_item(Vector3i(x, 0, -y), 0, 0)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass

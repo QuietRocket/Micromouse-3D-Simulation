@@ -13,8 +13,7 @@ func _ready():
 	# Save the original position of the point
 	original_position = $Point.position
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func check():
 	if is_colliding():
 		# If there is a collision...
 		var point: Vector3 = get_collision_point()
