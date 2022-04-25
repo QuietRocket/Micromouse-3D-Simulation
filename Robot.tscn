@@ -13,9 +13,10 @@ size = Vector3(1.5, 1, 2)
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3166p"]
 render_priority = 1
 transparency = 1
-albedo_color = Color(1, 0.160784, 0.121569, 1)
+albedo_color = Color(0.113725, 0.423529, 0.647059, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_yia7k"]
+material = SubResource( "ORMMaterial3D_3166p" )
 size = Vector3(1.5, 1, 2)
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_gv7pp"]
@@ -39,7 +40,6 @@ shape = SubResource( "BoxShape3D_5bpwc" )
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
-material_override = SubResource( "ORMMaterial3D_3166p" )
 mesh = SubResource( "BoxMesh_yia7k" )
 
 [node name="LeftWheel" type="VehicleWheel3D" parent="."]
