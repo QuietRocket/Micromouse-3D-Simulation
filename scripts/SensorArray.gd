@@ -1,7 +1,8 @@
 extends Node3D
 
 var time: float
-const REFRESH = 0.125
+const FREQ = 6 # times per second
+const REFRESH = 1.0 / FREQ
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,8 +12,8 @@ func _ready():
 		sensor.update.connect(sensor_data.bind(sensor.type))
 
 func sensor_data(distance: float, type: String):
-#	print(type, ": ", distance)
-	pass
+	print(type, ": ", distance)
+#	pass
 
 func fetch():
 	for sensor in get_children():
