@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=8 format=3 uid="uid://vvsd7ewqx67s"]
 
 [ext_resource type="Script" path="res://scripts/Robot.gd" id="1_d46s0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xji6o"]
-friction = 0.5
+friction = 0.7
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5bpwc"]
 size = Vector3(1.5, 1, 2)
